@@ -1,0 +1,71 @@
+﻿@model ClassMngmnt.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.S_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.S_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.F_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.F_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gender)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date_of_Birth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date_of_Birth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Age)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Age)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Course)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

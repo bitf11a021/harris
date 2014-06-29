@@ -1,0 +1,296 @@
+﻿@model ClassMngmnt.Models.Student
+
+@{
+    ViewBag.Title = "Signup";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Sign Up</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../Content/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="../Content/style.css" type="text/css" media="all">
+<script type="text/javascript" src="../Scripts/jquery-1.4.2.min.js" ></script>
+<script type="text/javascript" src="../Scripts/cufon-yui.js"></script>
+<script type="text/javascript" src="../Scripts/cufon-replace.js"></script>
+<script type="text/javascript" src="../Scripts/Myriad_Pro_300.font.js"></script>
+<script type="text/javascript" src="../Scripts/Myriad_Pro_400.font.js"></script>
+<script type="text/javascript" src="../Scripts/script.js"></script>
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="css/ie6.css" type="text/css" media="screen">
+<script type="text/javascript" src="js/ie_png.js"></script>
+<script type="text/javascript">ie_png.fix('.png, footer, header nav ul li a, .nav-bg, .list li img');</script>
+<![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+
+</head>
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="wrap">
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+
+                var userName = $('#name').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/home/Check?u_name=" + userName, function (data) {
+                    
+                    if (data) {
+                      //  alert(":P");
+                        $('#checking').text("User already exists in database");
+
+                    }
+                    else {
+                        $('#checking').text("User Name is available");
+                    }
+                });
+                $('#checking').show();
+
+            });
+
+        });
+    </script>
+  <header>
+    <div class="container">
+      <h1><a href="#">Student's site</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/Home/Index" class="m1">Home</a></li>
+          
+          <li class="current"><a href="/Home/Signup" class="m3">Sign Up</a></li>
+          <li><a href="/Home/Contact" class="m4">Contact Us</a></li>
+          
+        </ul>
+      </nav>
+      <form action="#" id="search-form">
+        <fieldset>
+          <div class="rowElem">
+            <input type="text">
+            <a href="#">Search</a></div>
+        </fieldset>
+      </form>
+    </div>
+  </header>
+  <div class="container">
+    <aside>
+      @*<h3>Categories</h3>
+      <ul class="categories">
+        <li><span><a href="/Home/Programs">Programs</a></span></li>
+        <!--<li><span><a href="#">Student Info</a></span></li>-->
+        <!--<li><span><a href="#">Teachers</a></span></li>-->
+        <li><span><a href="/Home/Description">Descriptions</a></span></li>
+        <!--<li><span><a href="#">Administrators</a></span></li>-->
+        <li><span><a href="#">Basic Information</a></span></li>
+        <!--<li><span><a href="#">Vacancies</a></span></li>-->
+        <!--<li class="last"><span><a href="#">Calendar</a></span></li>-->
+      </ul>*@
+      
+      
+    </aside>
+    <section id="content">
+      <!--<div id="banner">
+        <h2>Professional <span>Online Education <span>Since 1992</span></span></h2>
+      </div>
+      <div class="inside">
+        <h2>Recent <span>Articles</span></h2>
+        <ul class="list">
+         
+        </ul>
+        <h2>Move Forward <span>With Your Education</span></h2>
+        <p><span class="txt1">Eusus consequam</span> vitae habitur amet nullam vitae condis phasellus sed justo. Orcivel mollis intesque eu sempor ridictum a non laorem lacingilla wisi. </p>
+        <div class="img-box"><img src="Images/1page-img.jpg">Eusus consequam vitae habitur amet nullam vitae condis phasellus sed justo. Orcivel mollis intesque eu sempor ridictum a non laorem lacingilla wisi. Nuncrhoncus eros <a href="#">maurien ulla</a> facilis tor mauris tincidunt et vitae morbi. Velelit condimentes in laorem quis nullamcorper nam fauctor feugiat pellent sociis.</div>
+        <p class="p0">Eusus consequam vitae habitur amet nullam vitae condis phasellus sed justo. Orcivel mollis intesque eu sempor ridictum a <a href="#">non laorem</a> lacingilla wisi.</p>
+      </div>-->
+        <h3>Registration</h3><br>
+        <p><b>Signup with Facebook</b><br><a href="https://www.facebook.com">
+        <img src="../Images/fb.jpg" alt="Signup Using Facebook" width="32" height="32" />
+        </a></p><br>
+        <p><b>Signup with Twitter</b><br><a href="https://www.twitter.com">
+        <img src="../Images/twitter.jpg" alt="Signup Using Twitter" width="32" height="32" />
+        </a></p><br>
+
+        <h4 style="color:black;font-size:15px;">------------ OR ---------------</h4>
+        <!--<form action="../Home/Registration">
+            <!--<label>Username: </label>
+            
+            <input type="text" name="u_name" id="name" />
+            <div id="checking">--------------------------------------- </div>
+            <input type="button" value="check availability" id="b1" />
+
+
+            <br><br>
+            <label>Name: </label><input type="text" name="s_name" /><br><br>
+            <label>Father Name: </label><input type="text" name="u_fname" /><br><br>
+            <label>Gender: </label><input type="text" name="gender" /><br><br>
+            <label>Date of Birth: </label><input type="text" name="dob" /><br><br>
+            <label>Age: </label><input type="text" name="age" /><br><br>
+            <label>Email: </label><input type="text" name="email" /><br><br>
+            <label>Password: </label><input type="password" name="u_pass" /><br><br>
+            <label>Course: </label><select name="course">
+            <option value="volvo" selected>EAD</option>
+            </select><br><br>
+            <input type="submit" value="Register">
+            <table style="width:200px" >
+			<tr>
+				<td><label>Username: </label></td>
+				<td><input type="text" name="u_name" id="name" /></td>
+			</tr>
+            <tr>
+                <td><input type="button" value="Check Availability" id="b1" /></td>
+				<td><div id="checking"></div></td>
+			</tr>
+           <tr>
+				<td><label>Name: </label></td>
+				
+				<td><input type="text" name="s_name" /></td>
+			</tr>
+            <tr>
+				<td><label>Father Name: </label></td>
+				<td><input type="text" name="u_fname" /></td>
+			</tr>
+			<tr>
+				<td><label>Gender: </label></td>
+				<td><input type="text" name="gender" /></td>
+			</tr>
+            
+			<tr>
+				<td><label>Date of Birth: </label></td>
+				<td><input type="text" name="dob" /></td>
+			</tr>
+			<tr>
+				<td><label>Age: </label></td>
+				<td><input type="text" name="age" /></td>
+			</tr>
+            <tr>
+				<td><label>Email: </label></td>
+				<td><input type="text" name="email" /></td>
+			</tr>
+			<tr>
+				<td><label>Password: </label></td>
+				<td><input type="password" name="u_pass" /></td>
+			</tr>
+            <tr>
+				<td><label>Course: </label></td>
+				<td><select><option value="volvo" selected>EAD</option>
+            </select></td>
+			</tr>
+             <tr>
+				<td><input type="submit" value="Register"></td>
+			</tr>	
+				
+			</table>
+           
+        </form> -->
+
+        @Html.ValidationSummary()
+         @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
+         {
+             <table style="width:400px">
+                  <tr>
+                      <td>  
+                             <label>Username: </label>
+                      </td>
+                  
+                     <td>
+                         <input type="text" name="u_name" id="name" />
+                    </td>
+                  </tr>
+                 <tr> 
+                    <td>
+                        <div id="checking">--------------------------------------- </div>
+                    </td>
+                     <td>
+                        <input type="button" value="Check Availability" id="b1" />
+                     </td>
+                 </tr>
+                 <tr>
+                    <td>@Html.Label("First Name :")</td>
+
+                     <td>
+                         @Html.EditorFor(m => m.S_Name)
+                            @Html.ValidationMessageFor(m => m.S_Name)
+                     </td>   
+                </tr>
+                 <tr>
+                     <td><label>Last Name: </label></td>
+                     <td>@Html.TextBox("u_fname", "")</td>
+                </tr>
+                <tr>
+                    <td><label>Gender: </label></td>
+                    <td>@Html.TextBox("gender", "")</td>
+                </tr>
+                 <tr>
+                     <td><label>Date of Birth: </label></td>
+                     <td>@Html.TextBox("dob", "")</td>
+                </tr>
+                 <tr>
+                     <td><label>Age: </label></td>
+                     <td>@Html.TextBox("age", "")</td>
+                 </tr>       
+                <tr>
+                    <td>@Html.Label("Email :")</td>
+                    <td>
+                    @Html.EditorFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)</td>
+                </tr>
+                 <tr>
+
+                    <td>@Html.Label("Password :")</td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password)
+                     @Html.ValidationMessageFor(m => m.Password)</td>
+                </tr>
+                <!--<tr>
+                    <td><label>Password: </label></td>
+                    <td>@Html.Password("u_pass", "")</td>
+                </tr>-->
+            <!--<br>@Html.LabelFor(m => m.Course);
+                
+                @Html.DropDownList("Course",new SelectList(new[]{"EAD","MC"}));
+             
+        <label>Username: </label><input type="text" name="u_name" id="name" /><br>
+                 <div id="checking">--------------------------------------- </div>
+                 <input type="button" value="Check Availability" id="b1" />
+                 <br><label>Name: </label>@Html.TextBox("S_name", "");
+                 <br><label>Father Name: </label>@Html.TextBox("F_fname", "");
+                 <br><label>Gender: </label>@Html.TextBox("gender", "");
+                 <br><label>Date of Birth: </label>@Html.TextBox("dob", "");
+                 <br><label>Age: </label>@Html.TextBox("age", "");
+                 <br><label>Email: </label>@Html.TextBox("email", "");
+                 <br><label>Password: </label>@Html.Password("u_pass","");
+                 <br><label>Course: </label><select><option value="volvo" selected>EAD</option></select><br>-->
+                <tr>
+                    <td><label>Course: </label></td>
+                    <td><input name="course" type="text" /></td>
+                </tr>
+
+                 <tr>
+                     <td><input type="submit" value="Register"></td>
+                 </tr>       
+            </table>
+         }
+    </section>
+  </div>
+</div>
+<footer>
+  <div class="footerlink">
+    <p class="lf">Copyright &copy; 2014 <a href="#">Student's Site</a> - All Rights Reserved</p>
+    <!--<p class="rf"><a href="http://www.free-css.com/">Free CSS Templates</a> by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+    <div style="clear:both;"></div>
+  </div>-->
+</footer>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>
+
+
+@Scripts.Render("~/bundles/jqueryval")
